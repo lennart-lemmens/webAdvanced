@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E1: Begroeting Button</title>
+</head>
+<body>
+    <!--
+    Maak een webpagina met een knop die van tekst verandert als je erop klikt. De knop wisselt tussen "Hallo!" en "Tot ziens!".
+
+    Maak dit op 3 verschillende manieren:
+
+    Met inline JavaScript
+    Met een <script> tag in je HTML
+    Met een extern JavaScript bestand
+    -->
+
+    <h1>Met inline JavaScript</h1>
+    <button onclick="innerHTML == 'Hallo!' ? innerHTML='Tot ziens!' : innerHTML='Hallo!'">Hallo!</button>
+
+    <h1>Met een &lt;script&gt;-tag in je HTML</h1>
+    <button id="wisselknop-binnen-html">Hallo!</button>
+
+    <h1>Met een extern JavaScript-bestand</h1>
+    <button id="wisselknop-extern">Hallo!</button>
+    
+    <script>
+        let knopIntern = document.getElementById("wisselknop-binnen-html");
+
+        knopIntern.addEventListener("click", () => {
+            if (knopIntern.innerHTML == "Hallo!")
+            {
+                knopIntern.innerHTML = "Tot ziens!";
+            }
+            else
+            {
+                knopIntern.innerHTML = "Hallo!";
+            }
+        }, false)
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
