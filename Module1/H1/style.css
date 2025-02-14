@@ -1,0 +1,8 @@
+.hidden {
+    visibility: hidden;
+    height: 0;
+}
+
+.active {
+    background-color: yellow;
+}
