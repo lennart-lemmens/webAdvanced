@@ -27,7 +27,7 @@ function showItemList()
         }
 }
 
-// Totaalprijs bijwerken
+// Werk totaalprijs bij
 function updateTotal()
 {
     let totalPrice = 0;
@@ -48,6 +48,7 @@ function removeItem(index)
     updateTotal();
 }
 
+// Voeg product toe aan winkelwagen wanneer op 'Voeg toe aan winkelwagen' wordt geklikt
 addToCart.addEventListener('click', () => 
     {
         // Product toevoegen aan array
@@ -61,9 +62,9 @@ addToCart.addEventListener('click', () =>
         productPrice.value = '';
     }, false);
 
+// Sorteer producten op prijs wanneer op 'Sorteer op prijs' wordt geklikt
 sortByPrice.addEventListener('click', () => 
     {
-        // Sorteer producten op prijs
         products.sort(
             (price1, price2) => (parseFloat(price1.price) > parseFloat(price2.price)) ? 1 : (parseFloat(price1.price) < parseFloat(price2.price)) ? -1 : 0
         );
