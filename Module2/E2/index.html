@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E2: Recept Generator</title>
+</head>
+<body>
+    <!--
+    Maak een systeem dat receptkaarten genereert met template literals.
+
+    Vereisten:
+
+    Gebruik template literals voor het genereren van de receptkaart
+    Converteer de ingrediënten textarea naar een array (split op nieuwe regel)
+    Toon alle ingrediënten in een mooie lijst
+    -->
+
+    <div id="recipeCard">
+        <input type="text" id="recipeName" placeholder="Naam van het recept">
+        <input type="number" id="prepTime" placeholder="Bereidingstijd (minuten)">
+        <textarea id="ingredients" placeholder="Ingrediënten (1 per regel)"></textarea>
+        <button id="generateCard">Genereer Recept Kaart</button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
