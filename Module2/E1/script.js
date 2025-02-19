@@ -8,6 +8,7 @@ const scoreList = document. getElementById('scoreList');
 
 let scores = [];
 
+// Bereken gemiddelde van de elementen van een array
 function arrayAverage(array)
 {
     let total = 0;
@@ -20,6 +21,7 @@ function arrayAverage(array)
     return total / array.length;
 }
 
+// Bereken het hoogste getal in een array
 function arrayHighest(array)
 {
     let highest = 0;
@@ -39,7 +41,7 @@ function arrayHighest(array)
 
 addScore.addEventListener('click', () => 
 {
-    if (!isNaN(parseFloat(score.value)) && score.value >= 0 && score.value <= 20) // check of score een geldig nummer is en tussen 0 en 20 ligt
+    if (!isNaN(parseFloat(score.value)) && score.value >= 0 && score.value <= 20) // check of score een geldig nummer is dat tussen 0 en 20 ligt
     {
         // Gebruik de array methods push voor nieuwe scores
         scores.push(score.value);
