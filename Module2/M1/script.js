@@ -53,10 +53,7 @@ addToCart.addEventListener('click', () =>
         // Product toevoegen aan array
         products.push({name: productName.value, price: parseFloat(productPrice.value).toFixed(2)});
 
-        // Lijst met producten weergeven
         showItemList();
-
-        // Totaalprijs bijwerken
         updateTotal();
 
         // Invoervelden leegmaken
