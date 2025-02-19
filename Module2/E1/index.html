@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E1: Score Calculator</title>
+</head>
+<body>
+    <!--
+    Maak een programma dat studentenscores bijhoudt voor een vak. 
+        
+    Vereisten:
+
+    Gebruik let voor je scores array
+    Gebruik de array methods push voor nieuwe scores
+    Update de statistieken elke keer als er een score wordt toegevoegd
+    Toon alle scores in de ul lijst
+    -->
+    
+    <div id="scoreCalculator">
+        <input type="number" id="score" placeholder="Voer score in (0-20)">
+        <button id="addScore">Voeg Score Toe</button>
+        
+        <div id="stats">
+            <p>Gemiddelde score: <span id="average">0</span></p>
+            <p>Hoogste score: <span id="highest">0</span></p>
+        </div>
+        
+        <ul id="scoreList"></ul>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
