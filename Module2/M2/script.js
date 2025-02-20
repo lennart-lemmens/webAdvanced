@@ -85,44 +85,48 @@ function showResults()
 
 addGrade.addEventListener('click', () =>
     {
-        let studentExists = false;
-
-        for (let stud of students)
+        // Controleer of punten tussen 0 en 20 liggen
+        if (grade.value >= 0 && grade.value <= 20)
         {
-            // Als de student al bestaat, voeg het vak en de punten toe aan de bestaande student
-            if (stud.name === student.value)
+            let studentExists = false;
+
+            for (let stud of students)
             {
-                let courseExists = false;
-
-                // Als student al punten heeft voor dat vak, verander de punten van dat vak
-                for (let c of stud.courses)
+                // Als de student al bestaat, voeg het vak en de punten toe aan de bestaande student
+                if (stud.name === student.value)
                 {
-                    if(c.title === course.value)
+                    let courseExists = false;
+
+                    // Als student al punten heeft voor dat vak, verander de punten van dat vak
+                    for (let c of stud.courses)
                     {
-                        c.grade = grade.value;
-                        courseExists = true;
+                        if(c.title === course.value)
+                        {
+                            c.grade = grade.value;
+                            courseExists = true;
+                        }
                     }
-                }
 
-                // Als de student nog geen punten heeft voor dat vak, voeg het vak met de punten toe
-                if (!courseExists)
-                {
-                    stud.courses.push({title: course.value, grade: grade.value});
-                }
+                    // Als de student nog geen punten heeft voor dat vak, voeg het vak met de punten toe
+                    if (!courseExists)
+                    {
+                        stud.courses.push({title: course.value, grade: grade.value});
+                    }
 
-                studentExists = true;
+                    studentExists = true;
+                }
             }
+
+            // Als de student nog niet bestaat, maak een nieuwe student aan met het vak en de punten
+            if (!studentExists)
+            {
+                students.push({name: student.value, courses: [{title: course.value, grade: grade.value}]});
+            }
+
+            showResults();
+
+            // Invoervelden leegmaken
+            course.value = '';
+            grade.value = '';
         }
-
-        // Als de student nog niet bestaat, maak een nieuwe student aan met het vak en de punten
-        if (!studentExists)
-        {
-            students.push({name: student.value, courses: [{title: course.value, grade: grade.value}]});
-        }
-
-        showResults();
-
-        // Invoervelden leegmaken
-        course.value = '';
-        grade.value = '';
     }, false);
