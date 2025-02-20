@@ -45,42 +45,46 @@ function showResults()
 {
     studentOverview.innerHTML = '';
 
-    let studentList = document.createElement('ul');
     for (let stud of students)
     {
         // Voeg naam van student toe aan lijst
-        let studentListItem = document.createElement('li');
-        studentListItem.innerText = stud.name;
+        let studentName = document.createElement('h1');
+        studentName.innerText = `${stud.name}`;
+        studentOverview.appendChild(studentName);
 
-        // Voeg onder naam student de vakken en punten van student toe
-        let courseList = document.createElement('ul');
+        // Tabel met punten aanmaken
+        let studentList = document.createElement('table');
+
+        // Hoofding van tabel aanmaken
+        let heading = document.createElement('tr');
+        heading.innerHTML = `<th>Vak</th><th>Punten</th>`;
+        studentList.appendChild(heading);
+
+        // Vakken en punten van student aan tabel toevoegen
         for (let c of stud.courses)
         {
-            let courseListItem = document.createElement('li');
-            courseListItem.innerText = `${c.title}: ${c.grade}`;
-            courseList.appendChild(courseListItem);
+            let courseListItem = document.createElement('tr');
+            courseListItem.innerHTML = `<td>${c.title}</td><td>${c.grade}</td>`;
+            studentList.appendChild(courseListItem);
         }
         
         // Voeg gemiddelde punten toe
-        let average = document.createElement('li');
-        average.innerHTML = `<strong>Gemiddelde score:</strong> ${averageGrade(stud.courses)}`;
-        courseList.appendChild(average);
+        let average = document.createElement('tr');
+        average.innerHTML = `<td><strong>Gemiddelde score</strong></td><td>${averageGrade(stud.courses)}</td>`;
+        studentList.appendChild(average);
 
         // Voeg hoogste punten toe
-        let highest = document.createElement('li');
-        highest.innerHTML = `<strong>Hoogste score:</strong> ${highestGrade(stud.courses)}`;
-        courseList.appendChild(highest);
+        let highest = document.createElement('tr');
+        highest.innerHTML = `<td><strong>Hoogste score</strong></td><td>${highestGrade(stud.courses)}</td>`;
+        studentList.appendChild(highest);
 
         // Voeg laagste punten toe
-        let lowest = document.createElement('li');
-        lowest.innerHTML = `<strong>Laagste score:</strong> ${lowestGrade(stud.courses)}`;
-        courseList.appendChild(lowest);
+        let lowest = document.createElement('tr');
+        lowest.innerHTML = `<td><strong>Laagste score</strong></td><td>${lowestGrade(stud.courses)}</td>`;
+        studentList.appendChild(lowest);
 
-        studentListItem.appendChild(courseList);
-        studentList.appendChild(studentListItem);
+        studentOverview.appendChild(studentList);
     }
-
-    studentOverview.appendChild(studentList);
 }
 
 addGrade.addEventListener('click', () =>
