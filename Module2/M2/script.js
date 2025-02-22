@@ -68,17 +68,17 @@ function showResults()
             studentList.appendChild(courseListItem);
         }
         
-        // Voeg gemiddelde punten toe
+        // Gemiddelde punten toevoegen
         let average = document.createElement('tr');
         average.innerHTML = `<td><strong>Gemiddelde score</strong></td><td>${averageGrade(stud.courses)}</td>`;
         studentList.appendChild(average);
 
-        // Voeg hoogste punten toe
+        // Hoogste punten toevoegen
         let highest = document.createElement('tr');
         highest.innerHTML = `<td><strong>Hoogste score</strong></td><td>${highestGrade(stud.courses)}</td>`;
         studentList.appendChild(highest);
 
-        // Voeg laagste punten toe
+        // Laagste punten toevoegen
         let lowest = document.createElement('tr');
         lowest.innerHTML = `<td><strong>Laagste score</strong></td><td>${lowestGrade(stud.courses)}</td>`;
         studentList.appendChild(lowest);
