@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H1: Mini Game Engine</title>
+</head>
+<body>
+    <!-- 
+    Bouw een kleine game engine die verschillende concepten combineert.
+
+    Maak deze arrow functions:
+        maakSpeler(naam = "Player 1") => object met naam, level (1), health (100)
+        doeSchade(speler, schade) => update health, niet onder 0
+        levelOmhoog(speler) => verhoog level, reset health naar 100
+    -->
+
+    <div class="controls">
+        <input type="text" id="playerName" placeholder="Speler naam">
+        <button onclick="maakNieuweSpeler(playerName.value)">Nieuwe Speler</button>
+        <button onclick="doeSchadeBijSpeler(spelerObject, 25)">Doe Schade (25)</button>
+        <button onclick="levelSpelerOp(spelerObject)">Level Up</button>
+    </div>
+    <div id="playerStats"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
