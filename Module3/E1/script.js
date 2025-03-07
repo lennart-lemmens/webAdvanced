@@ -14,17 +14,11 @@ function zegHallo() {
 }
 */
 
-const telOp = (a, b) => {
-    return a + b;
-}
+const telOp = (a, b) => a + b;
 
-const isEvenGetal = (getal) => {
-    return getal % 2 === 0;
-}
+const isEvenGetal = getal => getal % 2 === 0;
 
-const zegHallo = () => {
-    return "Hallo!";
-}
+const zegHallo = () => "Hallo!";
 
 // Test je functies hier
 const output = document.getElementById('output');
