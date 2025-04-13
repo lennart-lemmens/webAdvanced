@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M2: Interactive Color Grid</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!--
+    Maak een interactief kleurenraster:
+        Een 5x5 grid van divs (gebruik CSS Grid of Flexbox)
+        Als je over een cel beweegt (hover) wordt deze rood
+        Als je klikt op een cel wordt deze blauw
+        Als je dubbelklikt op een cel wordt deze groen
+        Rechts van het grid toon je hoeveel cellen van elke kleur er zijn
+    -->
+    
+    <div id="container">
+        <div id="grid">
+            <!-- Hier komen de 25 cellen -->
+        </div>
+        <div id="stats">
+            <p>Rood: <span id="redCount">0</span></p>
+            <p>Blauw: <span id="blueCount">0</span></p>
+            <p>Groen: <span id="greenCount">0</span></p>
+        </div>
+     </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

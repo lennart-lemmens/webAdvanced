@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+#container {
+    display: flex;
+    gap: 1rem;
+}
+
+#grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50vw;
+    height: 50vw;
+    border: 1px solid black;
+}
+
+#grid div {
+    width: 20%;
+    height: 20%;
+    border: 1px solid black;
+}
