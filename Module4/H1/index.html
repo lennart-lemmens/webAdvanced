@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>H1: Online Cursusplatform</title>
+  </head>
+  <body>
+    <!--
+    1. Maak een Persoon basisclass met eigenschappen zoals naam, email, leeftijd
+    2. Creëer Student en Docent subclasses die overerven van Persoon met specifieke extra eigenschappen en methodes
+      - Student: studentnummer, studiejaar, etc.
+      - Docent: vakgebied, aanstellingsdatum, etc.
+    3. Maak een Cursus class met eigenschappen zoals titel, beschrijving, docent, ects, maximumStudenten
+    4. Maak een Inschrijving class die een relatie legt tussen een student en een cursus
+      - Inclusief datum van inschrijving, status (actief, voltooid, geannuleerd)
+      - Methodes voor statuswijzigingen, beoordeling toevoegen, etc.
+    5. Implementeer getters en setters voor eigenschappen met validatie:
+      - Bijvoorbeeld: maximumStudenten mag niet negatief zijn, email moet een geldig formaat hebben
+    6. Voeg statische methodes toe aan passende classes:
+      - Student.zoekOpStudentnummer(nummer)
+      - Cursus.zoekOpTitel(titel)
+      - Inschrijving.controleerDubbele(student, cursus)
+    7. Implementeer prototype methodes die voor alle instanties nuttig zijn
+    8. Maak functies om de user interface te vullen met de gecreëerde data:
+      - Toon alle cursussen in het cursusoverzicht
+      - Toon studentdetails met hun inschrijvingen
+      - Toon docenten met hun cursussen
+      - Toon alle inschrijvingen met relevante details
+    9. Implementeer functionaliteit om studenten in te schrijven voor cursussen, daarbij rekening houdend met het maximumaantal studenten
+    10. Voeg validatie toe die voorkomt dat een student zich meerdere keren voor dezelfde cursus inschrijft
+    11. Implementeer een functie die beoordelingen kan toevoegen aan inschrijvingen
+    -->
+    
+    <div class="tabs">
+      <div class="tab active" data-tab="courses">Cursussen</div>
+      <div class="tab" data-tab="students">Studenten</div>
+      <div class="tab" data-tab="teachers">Docenten</div>
+      <div class="tab" data-tab="enrollments">Inschrijvingen</div>
+    </div>
+    
+    <div class="tab-content active" id="courses">
+        <h2>Beschikbare Cursussen</h2>
+        <div class="course-list" id="course-list"></div>
+    </div>
+    
+    <div class="tab-content" id="students">
+        <h2>Studenten</h2>
+        <div class="student-list" id="student-list"></div>
+    </div>
+    
+    <div class="tab-content" id="teachers">
+        <h2>Docenten</h2>
+        <div class="teacher-list" id="teacher-list"></div>
+    </div>
+    
+    <div class="tab-content" id="enrollments">
+        <h2>Inschrijvingen</h2>
+        <div class="enrollment-list" id="enrollment-list"></div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
