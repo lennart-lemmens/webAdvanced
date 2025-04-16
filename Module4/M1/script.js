@@ -6,8 +6,8 @@ import { Motor } from "./motor.js";
 const output = document.getElementById('output');
 
 const buttonActie = (array, index) => {
-    alert(array[index].beschikbaar ? array[index].verhuur() : array[index].retourneer());
-    voertuigTabel();
+    let message = array[index].beschikbaar ? array[index].verhuur() : array[index].retourneer();
+    voertuigTabel(message);
 }
 
 const knoppenToevoegen = (tableRow, array, index) => {
@@ -18,7 +18,7 @@ const knoppenToevoegen = (tableRow, array, index) => {
 }
 
 
-const voertuigTabel = () => {
+const voertuigTabel = message => {
     output.innerHTML = '';
     
     if (autos.length > 0) {
@@ -94,6 +94,10 @@ const voertuigTabel = () => {
         }
         output.appendChild(motorTable);
     }
+
+    const messageLine = document.createElement('p');
+    messageLine.innerText = message;
+    output.appendChild(messageLine);
 }
 
 let autos = [];
@@ -104,5 +108,5 @@ let motoren = [];
 motoren.push(new Motor('Yamaha', 'R6', 2020, 120.00, 599, 'sport'));
 motoren.push(new Motor('Honda', '1000R-R', 2024, 180.00, 699, 'tour'));
 
-voertuigTabel();
+voertuigTabel('');
 
