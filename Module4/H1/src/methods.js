@@ -1,3 +1,7 @@
+import { Student } from "./student.js";
+import { Cursus } from "./cursus.js";
+import { Inschrijving } from "./inschrijving.js";
+
 export const toonCursussen = cursussen => {
     const courseList = document.getElementById("course-list");
     
@@ -48,7 +52,7 @@ export const toonStudenten = studenten => {
         tableRow.innerHTML = `
         <td>${student.naam}</td>
         <td>${student.email}</td>
-        <td>${student.leeftijd}</td>
+        <td>${student.leeftijd} jaar</td>
         <td>${student.studentnummer}</td>
         <td>${student.studiejaar}</td>
         `;
@@ -78,7 +82,7 @@ export const toonDocenten = docenten => {
         tableRow.innerHTML = `
         <td>${docent.naam}</td>
         <td>${docent.email}</td>
-        <td>${docent.leeftijd}</td>
+        <td>${docent.leeftijd} jaar</td>
         <td>${docent.vakgebied}</td>
         <td>${docent.aanstellingsdatum}</td>
         `;
@@ -117,3 +121,26 @@ export const toonInschrijvingen = inschrijvingen => {
 
     enrollmentList.appendChild(table);
 };
+
+export const studentInschrijven = (inschrijvingen, studenten, cursussen) => {
+    const studentNumberInput = document.getElementById("student-number-input");
+    const courseNameInput = document.getElementById("course-name-input");
+    const enrollmentDateInput = document.getElementById("enrollment-date-input");
+
+    const student = Student.zoekOpStudentnummer(studentNumberInput.value, studenten);
+    const cursus = Cursus.zoekOpTitel(courseNameInput.value, cursussen);
+    const inschrijvingsdatum = enrollmentDateInput.value;
+
+    const reedsIngeschreven = Inschrijving.controleerDubbele(student, cursus, inschrijvingen);
+    const cursusVol = cursus.ingeschrevenstudenten === cursus.maximumStudenten;
+
+    if (!reedsIngeschreven && !cursusVol) {
+        inschrijvingen.push(new Inschrijving(student, cursus, inschrijvingsdatum));
+        cursus.ingeschrevenstudenten++;
+    }
+
+    studentNumberInput.value = "";
+    courseNameInput.value = "";
+    enrollmentDateInput.value = "";
+    toonInschrijvingen(inschrijvingen);
+}

@@ -6,6 +6,7 @@ export class Cursus {
         this.ects = ects;
         this._maximumStudenten = 0;
         this.maximumStudenten = maximumStudenten;
+        this.ingeschrevenStudenten = 0;
     }
 
     get maximumStudenten() {

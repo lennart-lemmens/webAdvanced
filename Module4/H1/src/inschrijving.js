@@ -1,9 +1,9 @@
 export class Inschrijving {
-    constructor(student, cursus, inschrijvingsdatum, status, beoordeling = "niet beoordeeld") {
+    constructor(student, cursus, inschrijvingsdatum, status = "actief", beoordeling = "niet beoordeeld") {
         this.student = student;
         this.cursus = cursus;
         this.inschrijvingsdatum = inschrijvingsdatum;
-        this._status = '';
+        this._status = "actief";
         this.status = status;
         this._beoordeling = "niet beoordeeld";
         this.beoordeling = beoordeling;
