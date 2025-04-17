@@ -58,7 +58,22 @@
         <h2>Inschrijvingen</h2>
         <div class="enrollment-list" id="enrollment-list"></div>
         <br>
-        <div id="enrollment-inscription"><input id="student-number-input" type="text" placeholder="Studentnummer"><input id="course-name-input" type="text" placeholder="Cursusnaam"><input id="enrollment-date-input" type="date"><button id="enroll-button">Student inschrijven</button></div>
+        <div id="enrollment-inscription">
+          <input id="student-number-input" type="text" placeholder="Studentnummer">
+          <input id="course-name-input" type="text" placeholder="Cursusnaam">
+          <input id="enrollment-date-input" type="date">
+          <button id="enroll-button">Student inschrijven</button>
+        </div>
+        <div id="add-assessment">
+          <select name="students" id="student-dropdown">
+
+          </select>
+          <select name="courses" id="course-dropdown">
+
+          </select>
+          <input type="text" id="assessment-input">
+          <button id="button-add-assessment">Beoordeling toevoegen</button>
+        </div>
     </div>
 
     <script type="module" src="/src/main.js"></script>

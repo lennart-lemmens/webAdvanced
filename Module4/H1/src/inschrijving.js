@@ -1,11 +1,11 @@
 export class Inschrijving {
-    constructor(student, cursus, inschrijvingsdatum, status = "actief", beoordeling = "niet beoordeeld") {
+    constructor(student, cursus, inschrijvingsdatum, status = "actief", beoordeling = "") {
         this.student = student;
         this.cursus = cursus;
         this.inschrijvingsdatum = inschrijvingsdatum;
         this._status = "actief";
         this.status = status;
-        this._beoordeling = "niet beoordeeld";
+        this._beoordeling = "";
         this.beoordeling = beoordeling;
     }
 
@@ -26,7 +26,7 @@ export class Inschrijving {
     }
 
     set beoordeling(waarde) {
-        if ((waarde >= 0 && waarde <= 20) || waarde === "niet beoordeeld") {
+        if ((parseInt(waarde) >= 0 && parseInt(waarde) <= 20) || waarde === "") {
             this._beoordeling = waarde;
         } else {
             throw new Error("Beoordeling moet tussen 0 en 20 liggen.");

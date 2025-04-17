@@ -2,9 +2,15 @@ import { Student } from "./student.js";
 import { Cursus } from "./cursus.js";
 import { Inschrijving } from "./inschrijving.js";
 
-export const toonCursussen = cursussen => {
-    const courseList = document.getElementById("course-list");
-    
+const courseList = document.getElementById("course-list");
+const studentList = document.getElementById("student-list");
+const teacherList = document.getElementById("teacher-list");
+const enrollmentList = document.getElementById("enrollment-list");
+const studentDropdown = document.getElementById("student-dropdown");
+const courseDropdown = document.getElementById("course-dropdown");
+const assessmentInput = document.getElementById("assessment-input");
+
+export const toonCursussen = cursussen => {    
     courseList.innerHTML = "";  
     const table = document.createElement("table");
     const tableHeader = document.createElement("tr");
@@ -33,8 +39,6 @@ export const toonCursussen = cursussen => {
 };
   
 export const toonStudenten = studenten => {
-    const studentList = document.getElementById("student-list");
-
     studentList.innerHTML = "";  
     const table = document.createElement("table");
     const tableHeader = document.createElement("tr");
@@ -63,8 +67,6 @@ export const toonStudenten = studenten => {
 };
 
 export const toonDocenten = docenten => {
-    const teacherList = document.getElementById("teacher-list");
-
     teacherList.innerHTML = "";  
     const table = document.createElement("table");
     const tableHeader = document.createElement("tr");
@@ -93,8 +95,6 @@ export const toonDocenten = docenten => {
 };
 
 export const toonInschrijvingen = inschrijvingen => {
-    const enrollmentList = document.getElementById("enrollment-list");
-
     enrollmentList.innerHTML = "";  
     const table = document.createElement("table");
     const tableHeader = document.createElement("tr");
@@ -114,7 +114,7 @@ export const toonInschrijvingen = inschrijvingen => {
         <td>${inschrijving.cursus.titel}</td>
         <td>${inschrijving.inschrijvingsdatum}</td>
         <td>${inschrijving.status}</td>
-        <td>${inschrijving.beoordeling}</td>
+        <td>${inschrijving.beoordeling}${inschrijving.beoordeling === "" ? "" : "/20"}</td>
         `;
         table.appendChild(tableRow);
     }
@@ -143,4 +143,34 @@ export const studentInschrijven = (inschrijvingen, studenten, cursussen) => {
     courseNameInput.value = "";
     enrollmentDateInput.value = "";
     toonInschrijvingen(inschrijvingen);
-}
+};
+
+export const beoordelingslijstenVullen = (studenten, cursussen) => {    
+    for (let student of studenten) {
+        const option = document.createElement("option");
+        option.value = student.studentnummer;
+        option.innerHTML = student.naam;
+
+        studentDropdown.appendChild(option);
+    }
+    
+    for (let cursus of cursussen) {
+        const option = document.createElement("option");
+        option.value = cursus.titel;
+        option.innerHTML = cursus.titel;
+
+        courseDropdown.appendChild(option);
+    }
+};
+
+export const voegBeoordelingToe = (inschrijvingen, studenten, cursussen) => {
+    for (let inschrijving of inschrijvingen) {
+        if (inschrijving.student === Student.zoekOpStudentnummer(studentDropdown.value, studenten) && inschrijving.cursus === Cursus.zoekOpTitel(courseDropdown.value, cursussen)) {
+            inschrijving.beoordeling = assessmentInput.value;
+        }
+    }
+
+    assessmentInput.value = "";
+
+    toonInschrijvingen(inschrijvingen);
+};
