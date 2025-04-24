@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M2: Timer</title>
+  </head>
+  <body>
+    <!--
+    Gebruik Promise methods (then/catch/finally) om een timer te maken.
+
+    Maak een eenvoudige countdown timer die de gebruiker laat instellen. 
+    Gebruik Promises met .then, .catch en .finally om de timer af te handelen, inclusief het mogelijke annuleren van de timer. 
+    Toon verschillende stappen in het proces.
+    -->
+
+    <h1>Promise Timer</h1>
+
+    <div class="controls">
+      <input type="number" id="seconds" min="1" max="60" value="10" step="1" />
+      <button id="startButton">Start Timer</button>
+      <button id="cancelButton" disabled>Annuleer</button>
+    </div>
+
+    <div class="timer" id="timerDisplay">0</div>
+
+    <div id="message" class="message" style="display: none"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
