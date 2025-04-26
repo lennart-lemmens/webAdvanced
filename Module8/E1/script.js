@@ -24,4 +24,4 @@ const toggleTheme = () => {
 
 themeToggle.addEventListener("click", toggleTheme);
 
-window.addEventListener("load", setTheme)
+setTheme();
